@@ -61,6 +61,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "I_BOAT_YOU_production"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { host: 'https://i-boat-you-everysky.herokuapp.com/' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
