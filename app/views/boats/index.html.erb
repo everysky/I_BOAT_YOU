@@ -1,0 +1,5 @@
+<h1>Les bateaux</h1>
+<% @boats.each do |boat| %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+<%= link_to boat.name, boat_path(boat) %></div>
+<% end %>
