@@ -1,6 +1,20 @@
 <h1>Les bateaux</h1>
-<div class="cards">
+
+
+<div class="row container mx-auto">
   <% @boats.each do |boat| %>
-      <div> <%= link_to boat.name, boat_path(boat) %></div>
+    <div class="co-12 colsm-6 col-md-4 mb-3">
+      <div class="card-trip">
+        <div class="card-trip-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path boat.photo.key %>')">
+          <h2 class="card-trip-pricing">£99.99</h2>
+        </div>
+        <div class="card-trip-infos">
+          <div class="card-text">
+            <h2><%= boat.name.capitalize %></h2>
+            <p><%= boat.description %></p>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>
