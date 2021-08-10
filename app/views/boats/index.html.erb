@@ -1,20 +1,25 @@
-<h1>Les bateaux</h1>
-
-
-<div class="row container mx-auto">
-  <% @boats.each do |boat| %>
-    <div class="co-12 colsm-6 col-md-4 mb-3">
-      <div class="card-trip">
-        <div class="card-trip-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path boat.photo.key %>')">
-          <h2 class="card-trip-pricing">£99.99</h2>
-        </div>
-        <div class="card-trip-infos">
-          <div class="card-text">
-            <h2><%= boat.name.capitalize %></h2>
-            <p><%= boat.description %></p>
+<div class="container mx-auto">
+  <h1 class="my-5">Les bateaux</h1>
+  
+  
+  <div class="row">
+    <% @boats.each do |boat| %>
+      <div class="co-12 colsm-6 col-md-4 mb-3">
+        <%= link_to boat_path(boat), class:'text-decoration-none' do %>
+          <div class="card-trip ">
+            <div class="card-trip-img " style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= boat.photo.attached? ? cl_image_path(boat.photo.key) : asset_path('list_background.jpg') %>)">
+              <div class="card-trip-pricing ">
+                <h2>CHF 99.99</h2>
+                <h6>par jour</h6>
+              </div>
+            </div>
+            <div class="card-trip-infos ">
+                <h2><%= boat.name.capitalize %></h2>
+                <p><%= boat.description %></p>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
