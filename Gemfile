@@ -65,3 +65,7 @@ gem 'devise'
 
 # Cloudinary
 gem 'cloudinary', '~> 1.16.0'
+
+# Seeding
+gem 'faker'
+gem 'open-uri'
