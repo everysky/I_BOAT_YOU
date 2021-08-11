@@ -1,7 +1,17 @@
 class BoatsController < ApplicationController
   before_action :find_boat, only: [ :show ]
   def index
-    @boats = Boat.all
+    if params[:address] == nil
+      @boats = Boat.all
+    else
+      @boats = Boat.near(params[:address], 10)
+    end
+    @markers = @boats.geocoded.map do |boat|
+      {
+        lat: boat.latitude,
+        lng: boat.longitude
+      }
+    end
   end
 
   def show

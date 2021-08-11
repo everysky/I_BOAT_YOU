@@ -18,13 +18,13 @@ users = []
   user = User.create!(email: email, password: pw, password_confirmation: pw )
   p user
   users << user
-  puts user
 end
 
 10.times do
   file = URI.open('http://loremflickr.com/800/600/boat')
-  boat = Boat.create!(name: Faker::Hipster.word, location: Faker::Address.full_address, price: 100, description: Faker::Lorem.paragraph, user: users.sample)
+  boat = Boat.create!(name: Faker::Hipster.word, address: ["Fribourg Suisse", "Lausanne Suisse", "Genève Suisse", "Bouveret Suisse", "Vevey Suisse"].sample, price: 100, description: Faker::Lorem.paragraph, user: users.sample)
   boat.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-  puts boat
+  p boat
+  sleep 2
 end
 puts "Ended!"
