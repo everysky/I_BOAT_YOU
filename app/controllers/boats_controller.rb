@@ -7,6 +7,7 @@ class BoatsController < ApplicationController
   def show
   end
 
+
   def new
     @boat = Boat.new()
   end
