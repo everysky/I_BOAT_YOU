@@ -16,10 +16,16 @@
 }
 
 .card .form-group {
-  width: 360px;
-  margin-left: -17px;
-  padding: 20px;
+  width: 334px;
+  margin-left: -2px;
+  padding: 0px;
   background: white;
   display: flex;
   justify-content: space-between;
+}
+
+.img {
+    width: 460px;
+    aspect-ratio: auto 460 / 345;
+    height: 345px;
 }
