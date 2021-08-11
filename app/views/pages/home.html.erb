@@ -1,2 +1,32 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="banner" style="background-image: url(<%= asset_url('background.jpg')%>);">
+<h1>I BOAT YOU</h1>
+  <div class="card">
+    <h2>Book your experience</h2>
+    <form action="#">
+    <div class="form-group">
+      <label for="">Lieu de départ</label>
+      <input type="text" placeholder="Lausanne, Vevey.....">
+    </div>
+
+    <div class="form-group">
+      <label for="">Date de début</label>
+      <input type="text" placeholder="15/08/2021">
+    </div>
+
+    <div class="form-group">
+      <label for="">Date de fin</label>
+      <input type="text" placeholder="15/08/2021">
+    </div>
+
+      <input type="submit" value="Rechercher" class="btn btn-primary btn-lg w-100">
+    </form>
+  </div>
+</div>
+<%# <div>
+  <h1>Hello</h1>
+    <%# <img image_tagsrc="/assets/images/logobig.png" alt="Logo" width="460" height="345" class="img"> %>
+     <%# <%= image_tag "logobig.png", class: "img", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  <%# </div>
+</div> %>
+
