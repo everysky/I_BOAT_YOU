@@ -1,4 +1,10 @@
-<h1>Location bateau avec ou sans permis</h1>
+<div>
+  <% if @boat.user != current_user %>
+    <h1>Location bateau avec ou sans permis</h1>
+  <% end %>
+    <h1>Here is your boat!</h1>
+</div>
+
 
 <div class="card-show mt-3 container">
   <div class="mt-3">
@@ -9,11 +15,14 @@
     <p><%= @boat.description %></p>
     <br>
     <br>
-    <input type="button" value="Book now!" class="btn btn-primary btn-lg w-100">
+    <% if @boat.user != current_user %>
+      <input type="button" value="Book now!" class="btn btn-primary btn-lg w-100">
+    <% end %>
   </div>
   <div class="">
-    <%= @boat.photo.attached? ? cl_image_tag(@boat.photo.key, class: "card-show-img") : asset_path('list_background.jpg') %>
+    <%= @boat.photo.attached? ? cl_image_tag(@boat.photo.key, class: "card-show-img") : image_tag('list_background.png', class: "card-show-img")%>
   </div>
 </div>
 
 
+<%# asset_url('background.jpg') %>
