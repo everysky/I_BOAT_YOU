@@ -1,6 +1,6 @@
 class BoatsController < ApplicationController
   before_action :find_boat, only: [ :show ]
-  # before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create]
 
   def index
     if params[:address] == nil || params[:address].empty?
