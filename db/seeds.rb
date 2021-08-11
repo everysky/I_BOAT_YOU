@@ -20,9 +20,9 @@ users = []
   users << user
 end
 
-10.times do
+1.times do
   file = URI.open('http://loremflickr.com/800/600/boat')
-  boat = Boat.create!(name: Faker::Hipster.word, address: ["Fribourg Suisse", "Lausanne Suisse", "Genève Suisse", "Bouveret Suisse", "Vevey Suisse"].sample, price: 100, description: Faker::Lorem.paragraph, user: users.sample)
+  boat = Boat.create!(name: Faker::Hipster.word, address: ["Pl. de la Navigation 3, 1006 Lausanne", "Bouveret1897 Port-Valais", "Quai Perdonnet 19, 1800 Vevey", "Quai de Cologny 1, 1223 Cologny"].sample, price: 100, description: Faker::Lorem.paragraph, user: users.sample)
   boat.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   p boat
   sleep 2
