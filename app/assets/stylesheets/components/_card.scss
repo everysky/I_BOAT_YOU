@@ -59,3 +59,18 @@
   font-size: 14px;
   
 }
+
+.card-show {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.card-show-img {
+  width: 100%;
+  padding: 20px;
+}
+
