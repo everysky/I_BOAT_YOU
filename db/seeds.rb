@@ -21,9 +21,9 @@ users = []
   puts user
 end
 
-8.times do
-  file = URI.open('https://source.unsplash.com/random/800x600')
-  boat = Boat.create!(name: Faker::Hipster.word, location: Faker::Address.full_address, description: Faker::Lorem.paragraph, user: users.sample)
+10.times do
+  file = URI.open('http://loremflickr.com/800/600/boat')
+  boat = Boat.create!(name: Faker::Hipster.word, location: Faker::Address.full_address, price: 100, description: Faker::Lorem.paragraph, user: users.sample)
   boat.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   puts boat
 end
