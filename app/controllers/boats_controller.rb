@@ -1,7 +1,7 @@
 class BoatsController < ApplicationController
   before_action :find_boat, only: [ :show ]
   def index
-    if params[:address] == nil
+    if params[:address] == nil || params[:address].empty?
       @boats = Boat.all
     else
       @boats = Boat.near(params[:address], 10)
