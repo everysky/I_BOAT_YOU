@@ -1,0 +1,10 @@
+<div class="col-md-4 col-xs-12 booking-scroll">
+  <div>
+    <h3>Book your boat now!</h3> 
+    <%= simple_form_for [@boat, @booking], method: "post" do |f| %>
+      <%= f.input :start_date, as: :date %>
+      <%= f.input :end_date, as: :date %>
+      <%= f.submit "Book", class: "btn btn-primary mt-3 disable disabled", id: "submit-button" %>
+    <% end %>
+  </div>
+</div>
