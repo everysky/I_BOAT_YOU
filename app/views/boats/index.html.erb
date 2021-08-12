@@ -11,7 +11,7 @@
       <div class="co-12 colsm-6 col-md-4 mb-3">
         <%= link_to boat_path(boat), class:'text-decoration-none' do %>
           <div class="card-trip ">
-            <div class="card-trip-img " style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= boat.photo.attached? ? cl_image_path(boat.photo.key) : asset_path('list_background.jpg') %>)">
+            <div class="card-trip-img " style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= boat.photo.attached? ? cl_image_path(boat.photo.key) : asset_path('list_background.png') %>)">
               <div class="card-trip-pricing ">
                 <h3>CHF <%= '%.2f' % boat.price.round(2) %></h3>
                 <h6>par jour</h6>
