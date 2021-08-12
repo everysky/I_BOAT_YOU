@@ -1,5 +1,6 @@
 class Boat < ApplicationRecord
   belongs_to :user
+  has_many :bookings
   has_one_attached :photo
   geocoded_by :address
   after_validation :geocode, :get_zipcode_from_geocoder, :get_town_from_geocoder, if: :will_save_change_to_address?
