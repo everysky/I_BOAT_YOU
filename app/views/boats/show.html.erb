@@ -1,8 +1,9 @@
 <div>
   <% if @boat.user != current_user %>
     <h1>Location bateau avec ou sans permis</h1>
-  <% end %>
+  <% else %>  
     <h1>Here is your boat!</h1>
+  <% end %>
 </div>
 
 
