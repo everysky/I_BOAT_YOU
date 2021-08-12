@@ -1,0 +1,14 @@
+<div class="col-md-6 col-xs-12 booking-scroll">
+  <div>
+    <h3>Mes réservations!</h3>
+    <% if @bookings.size >= 1 %>
+    <ul>
+    <% @bookings.each do |booking| %>
+    <li>'<%= link_to booking.boat.name,  boat_path(booking.boat) %>' reservé du <%= booking.start_date %> au <%= booking.end_date %> pour <%= booking.invoice %> chf</li>
+    <% end %>
+    </ul>
+    <% else %>
+    <p>Vous n'avez aucunes réservations en cours.</p>
+    <% end %>
+  </div>
+</div>

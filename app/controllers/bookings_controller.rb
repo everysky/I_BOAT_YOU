@@ -3,6 +3,10 @@ class BookingsController < ApplicationController
   #   @bookings = Booking.all
   # end
 
+  def my_bookings
+    @bookings = current_user.bookings
+  end
+
   # def show
   #   @booking = Booking.find(params[:id])
   # end
@@ -16,11 +20,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.boat = Boat.find(params[:boat_id])
+    @booking.invoice = ((@booking.end_date - @booking.start_date).to_i.abs + 1) * @booking.boat.price
     # @booking.invoice = 
     # Will raise ActiveModel::ForbiddenAttributesError
     # byebug
     if @booking.save
-      redirect_to boat_path(@booking.boat)
+      redirect_to my_bookings_path()
       # Le bateau a bien été reservé. vous pouvez retrouver vos reservations sur votre profil
     else
       @boat = Boat.find(params[:boat_id])
