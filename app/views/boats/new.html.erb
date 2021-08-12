@@ -1,11 +1,17 @@
-<%= simple_form_for @boat do |f| %>
-  <div class="personal-information">
-    <h2>Boat information</h2>
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :description %>
-    <%= f.input :price %>
-    <%= f.input :photo, as: :file %>
-    <%= f.button :submit, "Add your boat!", class: "btn btn-primary btn-lg"%>
-  </div>
-<% end %>
+<div class="container mx-auto" >
+  <h1 class="mb-4">My boat</h1>
+    <div class="container mx-auto">
+    <%= simple_form_for @boat do |f| %>
+      <div class="personal-information">
+        <h2>Boat information</h2>
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :description %>
+        <%= f.input :price %>
+        <%= f.input :photo, as: :file %>
+
+        <%= f.button :submit, "Add your boat!", class: "btn btn-primary btn-lg"%>
+      </div>
+    </div>
+  <% end %>
+</div>
