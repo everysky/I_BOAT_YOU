@@ -1,26 +1,15 @@
-<div class="main-container my-3">
-  <h1 class="mb-3">My boats</h1>
-  <div class="question-list">
-    <% @my_boats.each do |my_boat| %>
-      <%= my_boat.name %></p>
-    <% end %>
+<h1>My boats</h1>
+<% @my_boats.each do |my_boat| %>
+  <div class="card-show mt-3 container">
+    <div class="mt-3">
+      <h2 class="mt-2"><strong>Name: </strong><%= my_boat.name.capitalize %></h2>
+      <h2 class="mt-2"><strong>Location: </strong><%= my_boat.address %></h2>
+      <h2 class="mt-2"><strong>Price: </strong><%= my_boat.price %> CHF.- par jour</h2>
+    </div>
+    <div>
+      <%= link_to boat_path(my_boat) do %>
+        <%= my_boat.photo.attached? ? cl_image_tag(my_boat.photo.key, class: "card-show-img") : image_tag('list_background.png', class: "card-show-img")%>
+      <% end %>
+    </div>
   </div>
-</div>
-
-<div class="card-show mt-3 container">
-  <div class="mt-3">
-    <h2 class="mt-2"><strong>Name: </strong><%= @boat.name.capitalize %></h2>
-    <h2 class="mt-2"><strong>Location: </strong><%= @boat.address %></h2>
-    <h2 class="mt-2"><strong>Price: </strong><%= @boat.price %> CHF.- par jour</h2>
-    <br>
-    <p><%= @boat.description %></p>
-    <br>
-    <br>
-    <% if @boat.user != current_user %>
-      <input type="button" value="Book now!" class="btn btn-clr btn-lg w-100">
-    <% end %>
-  </div>
-  <div class="">
-    <%= @boat.photo.attached? ? cl_image_tag(@boat.photo.key, class: "card-show-img") : image_tag('list_background.png', class: "card-show-img")%>
-  </div>
-</div>
+<% end %>
