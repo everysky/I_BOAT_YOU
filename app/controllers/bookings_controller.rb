@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     # Will raise ActiveModel::ForbiddenAttributesError
     # byebug
     if @booking.save
-      redirect_to boats_path(@booking.boat.id)
+      redirect_to boat_path(@booking.boat)
       # Le bateau a bien été reservé. vous pouvez retrouver vos reservations sur votre profil
     else
       @boat = Boat.find(params[:boat_id])

@@ -18,7 +18,6 @@
     <br>
     <% if @boat.user != current_user %>
       <%= link_to "Book now!",  new_boat_booking_path(@boat), class: "btn btn-clr btn-lg w-100" %>
-      <input type="button" value="Book now!" class="btn btn-clr btn-lg w-100" action="/boats/:boat_id/bookings/new">
     <% end %>
   </div>
   <div class="">
