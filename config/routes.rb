@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :boats do
     
   end
+
+  get :my_boats, to: 'boats#my_boats'
 end

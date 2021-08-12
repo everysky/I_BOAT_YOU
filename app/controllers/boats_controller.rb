@@ -33,6 +33,10 @@ class BoatsController < ApplicationController
 		end
   end
 
+  def my_boats
+    @my_boats = Boat.where(user: current_user)
+  end
+
   private 
 
   def find_boat
