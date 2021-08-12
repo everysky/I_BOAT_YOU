@@ -13,6 +13,17 @@
 }
 
 .card-trip h2 {
+  color: #1fc2ca;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-trip h3 {
+  color: #333333;
   font-size: 16px;
   font-weight: bold;
   margin: 0;
