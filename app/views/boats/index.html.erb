@@ -4,7 +4,7 @@
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 <div class="container mx-auto" style="margin-top: 65vh;">
-  <h1 class="my-5">Les bateaux trouvés</h1>
+  <h1 class="my-5"><%= @boats.count %> bateaux trouvés</h1>
   
   <div class="row">
     <% @boats.each do |boat| %>
@@ -13,13 +13,14 @@
           <div class="card-trip ">
             <div class="card-trip-img " style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= boat.photo.attached? ? cl_image_path(boat.photo.key) : asset_path('list_background.jpg') %>)">
               <div class="card-trip-pricing ">
-                <h2>CHF <%= boat.price %></h2>
+                <h2>CHF <%= '%.2f' % boat.price.round(2) %></h2>
                 <h6>par jour</h6>
               </div>
             </div>
             <div class="card-trip-infos ">
               <h2><%= boat.name.capitalize %></h2>
               <p><%= boat.description %></p>
+              <p><strong><%= boat.zip_code %> <%= boat.city %></strong></p>
             </div>
           </div>
         <% end %>
