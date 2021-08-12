@@ -1,6 +1,6 @@
 .img-show {
   width: 100%;
-  height: 80vh;
+  height: 60vh;
   object-fit: cover;
   display: flex;
   justify-content: center;
@@ -28,4 +28,12 @@
   font-size: 18px;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.show-info {
+  border-radius: 8px;
+  background-color: rgba(169, 169, 169, 0.116);
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
