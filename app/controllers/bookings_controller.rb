@@ -1,10 +1,12 @@
 class BookingsController < ApplicationController
-  # def index
-  #   @bookings = Booking.all
-  # end
+  def index
+    # @bookings = Booking.all
+  end
 
   def my_bookings
-    @bookings = current_user.bookings
+    # #upcomming_bookings is a scope written in model booking.rb
+    @my_upcomming_bookings = Booking.upcomming(current_user).order(start_date: :desc)
+    @my_past_bookings = Booking.past(current_user).order(start_date: :desc)
   end
 
   # def show

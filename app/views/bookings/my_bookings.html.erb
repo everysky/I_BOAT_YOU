@@ -1,14 +1,32 @@
 <div class="col-md-6 col-xs-12 booking-scroll">
   <div>
-    <h3>Mes réservations!</h3>
-    <% if @bookings.size >= 1 %>
-    <ul>
-    <% @bookings.each do |booking| %>
-    <li>'<%= link_to booking.boat.name,  boat_path(booking.boat) %>' reservé du <%= booking.start_date %> au <%= booking.end_date %> pour <%= booking.invoice %> chf</li>
-    <% end %>
-    </ul>
+    <h2>Mes réservations!</h2>
+
+    <h3>Réservations à venir.</h3>
+    <% if @my_upcomming_bookings.size >= 1 %>
+      <ul>
+        <% @my_upcomming_bookings.each do |booking| %>
+          <li>
+            '<%= link_to booking.boat.name,  boat_path(booking.boat) %>' reservé du <%= booking.start_date %> au <%= booking.end_date %> pour <%= booking.invoice %> chf
+          </li>
+        <% end %>
+      </ul>
     <% else %>
-    <p>Vous n'avez aucunes réservations en cours.</p>
+      <p>Aucune réservation planifiée.</p>
     <% end %>
+
+    <h3>Anciennes réservations.</h3>
+    <% if @my_past_bookings.size >= 1 %>
+      <ul>
+        <% @my_past_bookings.each do |booking| %>
+          <li>
+            '<%= link_to booking.boat.name,  boat_path(booking.boat) %>' reservé du <%= booking.start_date %> au <%= booking.end_date %> pour <%= booking.invoice %> chf
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>Vous n'avez encore jamais fait de réservations.</p>
+    <% end %>
+
   </div>
 </div>
