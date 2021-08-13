@@ -21,5 +21,19 @@
         <% end %>
       </div>
     </div>
+    <div class="container">
+      <h3>Réservations à venir</h3>
+      <% if  my_boat.bookings.upcomming.size == 0 %>
+        <p>Le bateau n'a pas de réservations.</p>
+      <% else %>
+        <ul>
+        <% my_boat.bookings.upcomming.each do |booking| %>
+          <li>
+            <p>Reservé du <%= booking.start_date %> au <%= booking.end_date %> pour <%= booking.invoice %> chf </p>
+          </li>
+        <% end %>
+        </ul>
+      <% end %>
+    </div>
   <% end %>
 </div>

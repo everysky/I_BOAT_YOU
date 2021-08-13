@@ -45,7 +45,7 @@ class BoatsController < ApplicationController
   end
 
   def my_boats
-    @my_boats = Boat.where(user: current_user)
+    @my_boats = current_user.boats
   end
 
   private 
