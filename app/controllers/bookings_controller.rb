@@ -18,6 +18,8 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new # needed to instantiate the form_for
     @boat = Boat.find(params[:boat_id])
+    @booking.start_date = params[:debut].to_date
+    @booking.end_date = params[:fin].to_date
   end
 
   def create

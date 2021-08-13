@@ -7,7 +7,7 @@
       <p>Moteur : <strong><%= @boat.hp %> cv</strong></p>
     </div>
     <% if @boat.user != current_user %>
-      <%= link_to "Reservez !",  new_boat_booking_path(@boat), class: "btn btn-clr btn-lg w-100" %>
+      <%= link_to "Reservez !",  new_boat_booking_path(@boat, debut: params[:debut], fin: params[:fin]), class: "btn btn-clr btn-lg w-100" %>
     <% end %>
   </div>
 </div>

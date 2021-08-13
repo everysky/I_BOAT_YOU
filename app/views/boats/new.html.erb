@@ -3,9 +3,9 @@
     <div class="container mx-auto">
     <%= simple_form_for @boat do |f| %>
       <div class="personal-information">
-        <h2>Boat information</h2>
+        <h2>Information du bateau</h2>
         <%= f.input :name %>
-        <%= f.input :address %>
+        <%= f.input :address, label: "Port d'attache" %>
         <%= f.input :capacity %>
         <%= f.input :size %>
         <%= f.input :hp %>

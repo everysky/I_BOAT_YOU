@@ -1,11 +1,11 @@
 <div class="container" style="margin-top: 5em">
-  <div class="col-md-6 col-xs-12 booking-scroll">
-    <div>
-      <h3>Réserver!</h3> 
+  <div class=" d-flex justify-content-center booking-scroll">
+    <div style="width: 50%;">
+      <h1>Réserver!</h1> 
       <%= simple_form_for [@boat, @booking], method: "post" do |f| %>
-        <%= f.input :start_date, as: :date %>
-        <%= f.input :end_date, as: :date %>
-        <%= f.submit "Book", class: "btn btn-primary mt-3 disable disabled", id: "submit-button" %>
+        <%= f.input :start_date, label: "Date de début", input_html: {value: params[:debut].to_date} %>
+        <%= f.input :end_date, label: "Date de fin", as: :date %>
+        <%= f.submit "Envoyez", class: "btn btn-clr btn-lg", id: "submit-button" %>
       <% end %>
     </div>
   </div>
