@@ -4,16 +4,16 @@
     <%= simple_form_for @boat do |f| %>
       <div class="personal-information">
         <h2>Information du bateau</h2>
-        <%= f.input :name %>
+        <%= f.input :name, label: "Nom du bateau" %>
         <%= f.input :address, label: "Port d'attache" %>
-        <%= f.input :capacity %>
-        <%= f.input :size %>
-        <%= f.input :hp %>
+        <%= f.input :capacity, label: "Capacité" %>
+        <%= f.input :size, label: "Dimension" %>
+        <%= f.input :hp, label: "Puissance (Chevaux)" %>
         <%= f.input :description %>
-        <%= f.input :price %>
+        <%= f.input :price, label: "Tarif journalier" %>
         <%= f.input :photo, as: :file %>
 
-        <%= f.button :submit, "Add your boat!", class: "btn btn-clr btn-lg"%>
+        <%= f.button :submit, "Créer le bateau!", class: "btn btn-clr btn-lg"%>
       </div>
     </div>
   <% end %>
