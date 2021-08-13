@@ -6,8 +6,9 @@ class BookingsController < ApplicationController
 
   def my_bookings
     # #upcomming_bookings is a scope written in model booking.rb
-    @my_upcomming_bookings = Booking.upcomming(current_user).order(start_date: :desc)
-    @my_past_bookings = Booking.past(current_user).order(start_date: :desc)
+    # @my_upcomming_bookings = Booking.upcomming(current_user).order(start_date: :desc)
+    @my_upcomming_bookings = current_user.bookings.upcomming.order(start_date: :desc)
+    @my_past_bookings = current_user.bookings.past.order(start_date: :desc)
   end
 
   # def show
