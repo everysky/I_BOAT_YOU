@@ -9,8 +9,6 @@ class Boat < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true
 
-
-
   def get_zipcode_from_geocoder
     self.zip_code = Geocoder.search(address).first.data["address"]["postcode"] if address.present?
   end
