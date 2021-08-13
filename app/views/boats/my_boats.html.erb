@@ -1,4 +1,4 @@
-<div class="container" style="margin-top: 5em">
+<div class="container" style="margin-top: 8em">
   <div class="bar-add-delete-edit">
     <div>
       <h1>Mes bateaux</h1>
@@ -9,31 +9,33 @@
   </div>
 
   <% @my_boats.each do |my_boat| %>
-    <div class="card-show mt-3 container">
-      <div class="mt-3">
-        <h2 class="mt-2"><strong>Name: </strong><%= my_boat.name.capitalize %></h2>
-        <h2 class="mt-2"><strong>Location: </strong><%= my_boat.address %></h2>
-        <h2 class="mt-2"><strong>Price: </strong><%= my_boat.price %> CHF.- par jour</h2>
+    <div class="booking-info my-3 ">
+      <div class="d-flex justify-content-start align-items-center mb-5">
+        <div>
+          <%= link_to boat_path(my_boat), class:'text-decoration-none' do %>
+            <div class="booking-boat mr-5" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= my_boat.photo.attached? ? cl_image_path(my_boat.photo.key) : asset_path('list_background.png') %>); height: 200px; width 600px;">
+              <%= my_boat.name.capitalize %>
+            </div>
+          <% end %>
+        </div>
+        <div class="mt-3">
+          <h4 class="mt-2"><strong>Nom : </strong><%= my_boat.name.capitalize %></h6>
+          <h4 class="mt-2"><strong>Port : </strong><%= my_boat.address %></h6>
+          <h4 class="mt-2"><strong>Prix à la journée :</strong> CHF <%= '%.2f' % my_boat.price.round(2) %></h6>
+        </div>
       </div>
-      <div>
-        <%= link_to boat_path(my_boat) do %>
-          <%= my_boat.photo.attached? ? cl_image_tag(my_boat.photo.key, class: "card-show-img") : image_tag('list_background.png', class: "card-show-img")%>
+      <div >
+        <h3>Réservations à venir</h3>
+        <% if  my_boat.bookings.upcomming.size == 0 %>
+          <p>Le bateau n'a pas de réservations.</p>
+        <% else %>
+          <% my_boat.bookings.upcomming.each do |booking| %>
+            <div class="booking-line my-4">
+                  <p>Du <%= booking.start_date.strftime("%d/%m/%Y") %> au <%= booking.end_date.strftime("%d/%m/%Y") %></p><strong>CHF <%= '%.2f' % booking.invoice.round(2) %></strong><%= link_to  "📧 #{booking.user.email}",  "mailto:#{booking.user.email}", class: "btn btn-clr" %>  
+                </div>
+          <% end %>
         <% end %>
       </div>
-    </div>
-    <div class="container">
-      <h3>Réservations à venir</h3>
-      <% if  my_boat.bookings.upcomming.size == 0 %>
-        <p>Le bateau n'a pas de réservations.</p>
-      <% else %>
-        <ul>
-        <% my_boat.bookings.upcomming.each do |booking| %>
-          <li>
-            <p>Reservé du <%= booking.start_date %> au <%= booking.end_date %> pour <%= booking.invoice %> chf </p>
-          </li>
-        <% end %>
-        </ul>
-      <% end %>
     </div>
   <% end %>
 </div>
