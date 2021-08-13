@@ -33,6 +33,11 @@
       <h6 class="mt-2"><strong>Port : </strong><%= @boat.address %></h6>
       <h6 class="mt-2"><strong>Prix à la journée :</strong> CHF <%= '%.2f' % @boat.price.round(2) %></h6>
       <p class="mt-5"><strong>Déscription : </strong><%= @boat.description %></p>
+      <div>
+        <% if @boat.user == current_user %>
+          <%= link_to "Supprimer", boat_path(@boat), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-clr btn-lg'%>
+        <% end %>
+      </div>
     </div>
     <div id="map"
       style="width: 50%; min-height: 50vh; border-radius: 0px 8px 8px 0px;"
