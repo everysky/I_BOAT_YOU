@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :my_bookings]
   def index
     # @bookings = Booking.all
   end
