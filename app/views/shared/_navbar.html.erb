@@ -19,7 +19,7 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Mes bateaux", my_boats_path, class: "dropdown-item" %>
             <%= link_to "Mon profil", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Mes reservations", "#", class: "dropdown-item" %>
+            <%= link_to "Mes reservations", my_bookings_path, class: "dropdown-item" %>
             <%# <%= link_to "Add boat", new_boat_path, class: "dropdown-item" %>
             <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
