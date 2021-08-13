@@ -3,8 +3,8 @@
     <div style="width: 50%;">
       <h1>Réserver!</h1> 
       <%= simple_form_for [@boat, @booking], method: "post" do |f| %>
-        <%= f.input :start_date, label: "Date de début", input_html: {value: params[:debut].to_date} %>
-        <%= f.input :end_date, label: "Date de fin", as: :date %>
+        <%= f.input :start_date, label: "Date de début" %>
+        <%= f.input :end_date, label: "Date de fin"%>
         <%= f.submit "Envoyez", class: "btn btn-clr btn-lg", id: "submit-button" %>
       <% end %>
     </div>
