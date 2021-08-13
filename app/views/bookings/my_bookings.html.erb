@@ -1,32 +1,45 @@
-<div class="col-md-6 col-xs-12 booking-scroll">
+<div class="container" style="margin-top: 8em">
   <div>
-    <h2>Mes réservations!</h2>
+    <h1>Mes réservations</h1>
 
-    <h3>Réservations à venir.</h3>
-    <% if @my_upcomming_bookings.size >= 1 %>
-      <ul>
-        <% @my_upcomming_bookings.each do |booking| %>
-          <li>
-            '<%= link_to booking.boat.name,  boat_path(booking.boat) %>' reservé du <%= booking.start_date %> au <%= booking.end_date %> pour <%= booking.invoice %> chf
-          </li>
-        <% end %>
-      </ul>
-    <% else %>
-      <p>Aucune réservation planifiée.</p>
-    <% end %>
-
-    <h3>Anciennes réservations.</h3>
-    <% if @my_past_bookings.size >= 1 %>
-      <ul>
-        <% @my_past_bookings.each do |booking| %>
-          <li>
-            '<%= link_to booking.boat.name,  boat_path(booking.boat) %>' reservé du <%= booking.start_date %> au <%= booking.end_date %> pour <%= booking.invoice %> chf
-          </li>
-        <% end %>
-      </ul>
-    <% else %>
-      <p>Vous n'avez encore jamais fait de réservations.</p>
-    <% end %>
+    <div class="booking-info">
+      <% if @my_upcomming_bookings.size >= 1 %>
+    <h3>Réservations à venir :</h3>
+      
+          <% @my_upcomming_bookings.each do |booking| %>
+      
+              <div class="booking-line my-4">
+                <%= link_to boat_path(booking.boat), class:'text-decoration-none' do%>
+                  <div class="booking-boat" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= booking.boat.photo.attached? ? cl_image_path(booking.boat.photo.key) : asset_path('list_background.png') %>)">
+                    <%= booking.boat.name.capitalize %>
+                  </div>
+                <% end %>
+                <p>reservé du <%= booking.start_date.strftime("%d/%m/%Y") %> au <%= booking.end_date.strftime("%d/%m/%Y") %></p><strong>CHF <%= '%.2f' % booking.invoice.round(2) %></strong><%= link_to  "📧 #{booking.boat.user.email}",  "mailto:#{booking.boat.user.email}", class: "btn btn-clr" %>  
+              </div>
+      
+          <% end %>
+      
+      <% else %>
+        <p>Aucune réservation planifiée.</p>
+      <% end %>
+    </div>
+    <div class="booking-info">  
+      <h3>Anciennes réservations :</h3>
+      <% if @my_past_bookings.size >= 1 %>
+          <% @my_past_bookings.each do |booking| %>
+                          <div class="booking-line my-4">
+                <%= link_to boat_path(booking.boat), class:'text-decoration-none' do%>
+                  <div class="booking-boat" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= booking.boat.photo.attached? ? cl_image_path(booking.boat.photo.key) : asset_path('list_background.png') %>)">
+                    <%= booking.boat.name.capitalize %>
+                  </div>
+                <% end %>
+                <p>reservé du <%= booking.start_date.strftime("%d/%m/%Y") %> au <%= booking.end_date.strftime("%d/%m/%Y") %></p><strong>CHF <%= '%.2f' % booking.invoice.round(2) %></strong><%= link_to  "📧 #{booking.boat.user.email}",  "mailto:#{booking.boat.user.email}", class: "btn btn-clr" %>  
+              </div>
+          <% end %>
+      <% else %>
+        <p>Vous n'avez encore jamais fait de réservations.</p>
+      <% end %>
+    </div>
 
   </div>
 </div>
