@@ -8,9 +8,6 @@ class Boat < ApplicationRecord
   validates :address, presence: true
   validates :description, presence: true
   validates :price, presence: true
-  validates :capacity, presence: true
-  validates :size, presence: true
-  validates :hp, presence: true
 
 
 
