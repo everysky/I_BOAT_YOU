@@ -1,5 +1,5 @@
 class BoatsController < ApplicationController
-  before_action :find_boat, only: [ :show ]
+  before_action :find_boat, only: [ :show]
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
@@ -35,6 +35,13 @@ class BoatsController < ApplicationController
 		else
 			render :new
 		end
+  end
+
+  def destroy
+    @boat = Boat.find(params[:id])
+    @boat.destroy
+    redirect_to my_boats_path()
+  
   end
 
   def my_boats
